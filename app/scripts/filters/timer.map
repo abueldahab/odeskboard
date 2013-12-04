@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "timer.js",
+  "sourceRoot": "",
+  "sources": [
+    "timer.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;CAAA,KAAA;;CAAA,CAAA,CAAS,GAAT,GAAS;GACP,EAAA,IAAC,EAAD;CACE,CAAA,CAAW,CAAR,CAAA,CAAH;CACE,GAAS,CAAT,GAAA;CAAA,EACQ,CAAI,CAAZ,GAAA;QAFF;CAGE,CAAF,CAAE,EAAA,GAAA,KAAF;CALK,IACP;CADF,EAAS;;CAAT,CAOA,IAAA,CAAO,QAAP;CAPA"
+}

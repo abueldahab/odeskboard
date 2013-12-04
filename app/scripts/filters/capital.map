@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "capital.js",
+  "sourceRoot": "",
+  "sources": [
+    "capital.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;CAAA,KAAA;;CAAA,CAAA,CAAS,GAAT,GAAS;CAAI,EAAI,QAAL;CAAZ,EAAS;;CAAT,CAEA,IAAA,CAAO,EAAP,MAAA;CAFA"
+}

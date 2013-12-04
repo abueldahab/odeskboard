@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "truthy.js",
+  "sourceRoot": "",
+  "sources": [
+    "truthy.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;CAAA,KAAA;;CAAA,CAAA,CAAS,GAAT,GAAS;GACP,EAAA,IAAC,EAAD;CACE,GAAG,CAAH,CAAA;CAAA,cAAc;MAAd,EAAA;CAAA,cAAyB;QAD3B;CADO,IACP;CADF,EAAS;;CAAT,CAIA,IAAA,CAAO,CAAP,OAAA;CAJA"
+}

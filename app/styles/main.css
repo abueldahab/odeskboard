@@ -1,0 +1,119 @@
+/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com
+  ---------------------------------------------------*/
+/** Grey **//** Redish **//** Bluish **//** Yellowish **//** Whitish **/body.odeskboard {
+  background: #f6f6f1 url('/images/bgpattern.png') 0 0 repeat;
+  font: 'Open Sans';
+  min-width: 320px;
+}
+body.odeskboard h1,
+body.odeskboard h2,
+body.odeskboard h3,
+body.odeskboard h4,
+body.odeskboard h5,
+body.odeskboard h6,
+body.odeskboard h7 {
+  margin-top: 0;
+  font-family: 'Ropa Sans', sans-serif;
+  /*color: @white;*/
+  color: #464646;
+}
+body.odeskboard .well h1,
+body.odeskboard .well h2,
+body.odeskboard .well h3,
+body.odeskboard .well h4,
+body.odeskboard .well h5,
+body.odeskboard .well h6,
+body.odeskboard .well h7 {
+  color: #f3f3f3;
+}
+body.odeskboard .alert-danger {
+  color: #500000;
+}
+body.odeskboard .btn {
+  height: 35px;
+}
+body.odeskboard .well {
+  background: #f3f3f3;
+  background: #464646;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgba(0, 0, 0, 0.7)), color-stop(1, rgba(0, 0, 0, 0.8)));
+  background: -ms-linear-gradient(bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8));
+  background: -moz-linear-gradient(center bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.8) 100%);
+  background: -o-linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='rgba(0, 0, 0, 0.8)', endColorstr='rgba(0, 0, 0, 0.7)', GradientType=0);
+}
+body.odeskboard .row {
+  margin: 10px auto;
+  margin-top: 2px;
+}
+body.odeskboard .signin {
+  border: 1px solid #464646;
+}
+body.odeskboard .media-list {
+  clear: both;
+}
+body.odeskboard .media-list .media {
+  border: 1px solid #5a5a51;
+  border-radius: 5px;
+  overflow: visible;
+}
+body.odeskboard .media-list .media .counter {
+  margin: 5px;
+  display: inline-block;
+}
+body.odeskboard .media-list .media .counter span {
+  display: inline-block;
+  border-radius: 5px;
+  color: #4b96b2;
+  background-color: #f3f3f3;
+  text-align: center;
+  vertical-align: middle;
+  padding: 5px;
+  min-width: 40px;
+}
+body.odeskboard .media-list .media .media-body {
+  color: #4b96b2;
+}
+body.odeskboard .media-list .media .media-body h1,
+body.odeskboard .media-list .media .media-body h2,
+body.odeskboard .media-list .media .media-body h3,
+body.odeskboard .media-list .media .media-body h4,
+body.odeskboard .media-list .media .media-body h5,
+body.odeskboard .media-list .media .media-body h6,
+body.odeskboard .media-list .media .media-body h7 {
+  color: #f3f3f3;
+}
+body.odeskboard .media-list .media .media-body form {
+  margin-top: 5px;
+}
+body.odeskboard .media-list .media .media-body .media-heading {
+  padding-top: 10px;
+}
+body.odeskboard .media-list .media .media-body .tags {
+  color: #ccc87f;
+}
+body.odeskboard .media-list .media .media-actions > * {
+  margin: 5px;
+}
+body.odeskboard .media-list .media.rest .counter > span {
+  background-color: #ff5a7d;
+  color: #f3f3f3;
+}
+body.odeskboard .media-list .media.done .counter > span {
+  background-color: #f3f3f3;
+}
+body.odeskboard .media-list .media.done .media-body {
+  text-decoration: line-through;
+}
+body.odeskboard .nav-tabs li a {
+  color: #3e444c;
+}
+body.odeskboard .nav-tabs li a:hover {
+  color: white;
+}
+.active > a {
+  color: #ff5a7d !important;
+}

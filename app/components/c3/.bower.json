@@ -1,0 +1,14 @@
+{
+  "name": "c3",
+  "homepage": "https://github.com/masayuki0812/c3",
+  "_release": "f1268f48c2",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "f1268f48c2657fdccc00f45fb2a4cdacd3b29d63"
+  },
+  "_source": "git://github.com/masayuki0812/c3.git",
+  "_target": "*",
+  "_originalSource": "masayuki0812/c3",
+  "_direct": true
+}
