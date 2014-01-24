@@ -13,7 +13,9 @@ phantom.create (ph) ->
 
   atEnd = _.after pages, (all)->
     console.log all
-    ph.exit()
+    setTimeout ->
+      ph.exit()
+    , 4 * cycle
 
   callback = (list, index)->
     if list
@@ -49,7 +51,7 @@ phantom.create (ph) ->
               res = page.evaluate(js, onError)
               if res
                 callback res, index
-            ), 8000
+            ), 10000
 
   open = (index, callback)->
     setTimeout ->
