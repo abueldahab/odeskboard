@@ -13,7 +13,7 @@ phantom.create (ph) ->
   ph.createPage (page) ->
 
     onError = (result) ->
-      allFreelancers.concat result
+      allFreelancers = allFreelancers.concat result
       console.log allFreelancers
       #ph.exit()
 
