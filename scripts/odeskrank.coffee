@@ -4,7 +4,6 @@ _ = require 'lodash'
 keyword = 'AngularJS'
 pages = 20
 cycle = 5000
-url = "https://www.odesk.com/o/profiles/browse/?q=#{keyword}&page=#{page}"
 jquery = "http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"
 lodash = "//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"
 
