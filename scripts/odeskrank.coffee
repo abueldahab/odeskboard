@@ -12,10 +12,9 @@ allFreelancers = {}
 phantom.create (ph) ->
 
   atEnd = _.after pages, (all)->
-    setTimeout ->
-      console.log all
-      ph.exit()
-    , 4 * cycle
+    console.log all
+    console.log allFreelancers
+    #ph.exit()
 
   callback = (list, index)->
     if list
