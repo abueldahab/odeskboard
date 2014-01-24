@@ -17,9 +17,10 @@ phantom.create (ph) ->
       ph.exit()
 
     callback = (list, index)->
-      for name, i in list
-        allFreelancers[name] = index * i
-      atEnd allFreelancers
+      if list
+        for name, i in list
+          allFreelancers[name] = index * i
+        atEnd allFreelancers
 
     openLater = (url, index, callback)->
       page.open url, (status) ->
@@ -44,7 +45,7 @@ phantom.create (ph) ->
                 h2Arr
 
               console.log page.evaluate(js, onError)
-            ), 2000
+            ), 8000
 
     open = (url, index, callback)->
       setTimeout ->
