@@ -12,8 +12,8 @@ allFreelancers = {}
 phantom.create (ph) ->
 
   atEnd = _.after pages, (all)->
-    console.log all
     setTimeout ->
+      console.log all
       ph.exit()
     , 4 * cycle
 
