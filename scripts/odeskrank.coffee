@@ -2,7 +2,7 @@ phantom = require "phantom"
 _ = require 'lodash'
 #url = 'https://www.odesk.com/o/profiles/browse/?q=angularjs&page=4'
 keyword = 'AngularJS'
-pages = 20
+pages = 2
 cycle = 10000
 jquery = "http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"
 lodash = "//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"
