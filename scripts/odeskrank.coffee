@@ -2,7 +2,8 @@ phantom = require "phantom"
 _ = require 'lodash'
 #url = 'https://www.odesk.com/o/profiles/browse/?q=angularjs&page=4'
 keyword = 'AngularJS'
-page = 1
+pages = 20
+cycle = 5000
 url = "https://www.odesk.com/o/profiles/browse/?q=#{keyword}&page=#{page}"
 jquery = "http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"
 lodash = "//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"
@@ -12,17 +13,24 @@ allFreelancers = []
 phantom.create (ph) ->
   ph.createPage (page) ->
 
-    onError = (result) ->
-      allFreelancers = allFreelancers.concat result
-      console.log allFreelancers
-      #ph.exit()
+    atEnd = _.after pages, (all)->
+      console.log all
+      ph.exit()
 
-    openLater = (url)->
+    callback = (list, index)->
+      for name, i in list
+        allFreelancers[name] = index * i
+      atEnd allFreelancers
+
+    openLater = (url, index, callback)->
       page.open url, (status) ->
         console.log "opened odesk? ", status
         page.injectJs jquery, ->
           page.injectJs lodash, ->
-            
+
+            onError = (result) ->
+              callback result, index
+                    
             #jQuery Loaded.
             #Wait for a bit for AJAX content to load on the page.
             #Here, we are waiting 5 seconds.
@@ -36,16 +44,16 @@ phantom.create (ph) ->
                   h2Arr.push $(this).html()
                 h2Arr
 
-              allFreelancers.concat page.evaluate(js, onError)
+              console.log page.evaluate(js, onError)
             ), 2000
 
-    open = (url)->
+    open = (url, index, callback)->
       setTimeout ->
         openLater url
-      , 5000 * Math.random()
+      , cycle * Math.random()
 
     baseUrl = "https://www.odesk.com/o/profiles/browse/?q=#{keyword}"
     open baseUrl
-    for index in [1..5]
+    for index in [1..pages]
       url = baseUrl + "&page=#{index}"
-      open url
+      open url, index, callback
