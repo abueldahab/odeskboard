@@ -24,12 +24,12 @@ phantom.create (ph) ->
     openLater = (url, index, callback)->
       page.open url, (status) ->
         console.log "opened odesk? ", status
+
+        onError = (result) ->
+          callback result, index
+                
         page.injectJs jquery, ->
           page.injectJs lodash, ->
-
-            onError = (result) ->
-              callback result, index
-                    
             #jQuery Loaded.
             #Wait for a bit for AJAX content to load on the page.
             #Here, we are waiting 5 seconds.
