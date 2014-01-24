@@ -16,9 +16,7 @@ phantom.create (ph) ->
       allFreelancers.concat result
       #ph.exit()
 
-    for index in [1..5]
-
-      url = "https://www.odesk.com/o/profiles/browse/?q=#{keyword}&page=#{index}"
+    openLater = (url)->
       page.open url, (status) ->
         console.log "opened odesk? ", status
         page.injectJs jquery, ->
@@ -40,3 +38,13 @@ phantom.create (ph) ->
               allFreelancers.concat page.evaluate(js, onError)
             ), 2000
 
+      open = (url)->
+        setTimeout ->
+          openLater url
+        , 5000 * Math.random()
+
+    baseUrl = "https://www.odesk.com/o/profiles/browse/?q=#{keyword}"
+    open baseUrl
+    for index in [1..5]
+      url = baseUrl + "&page=#{index}"
+      open url
