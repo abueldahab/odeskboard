@@ -47,7 +47,9 @@ phantom.create (ph) ->
                   h2Arr.push $(this).html()
                 h2Arr
 
-              console.log page.evaluate(js, onError)
+              res = page.evaluate(js, onError)
+              if res
+                callback res, index
             ), 8000
 
   open = (index, callback)->
