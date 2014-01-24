@@ -22,14 +22,14 @@ phantom.create (ph) ->
       atEnd allFreelancers
 
 
-  openLater = (url, index, callback)->
+  openLater = (url, callback)->
     ph.createPage (page) ->
 
       page.open url, (status) ->
         #console.log "opened odesk? ", status
 
         onError = (result) ->
-          callback(result, index)
+          callback(result)
                 
         page.injectJs jquery, ->
           page.injectJs lodash, ->
@@ -48,7 +48,7 @@ phantom.create (ph) ->
 
               res = page.evaluate(js, onError)
               if res
-                callback res, index
+                callback res
             ), cycle
 
   open = (index, callback)->
