@@ -60,6 +60,6 @@ phantom.create (ph) ->
     openLater url, (list)->
       callback list, index
       if index < pages
-        open ++index
+        open ++index, callback
 
   open 1, callback
