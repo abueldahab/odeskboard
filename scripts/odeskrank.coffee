@@ -1,24 +1,26 @@
 phantom = require "phantom"
 _ = require 'lodash'
 #url = 'https://www.odesk.com/o/profiles/browse/?q=angularjs&page=4'
-keyword = 'AngularJS'
-pages = 20
-cycle = 8000
 jquery = "http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"
 lodash = "//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"
-name = 'Diaa Kasem'
+
+pages = 20
+cycle = 8000
+keyword = 'AngularJS'
+searchname = 'Diaa Kasem'
 
 allFreelancers = {}
 
 phantom.create (ph) ->
 
   atEnd = _.after pages, (all)->
-    console.log "#{name} ranked #{all[name]} for #{keyword}"
+    console.log "#{searchname} ranked #{all[searchname]} for #{keyword}"
     ph.exit()
 
   callback = (list, index)->
     #console.log list
     #console.log '=============='
+    console.log '.'
     if list
       for name, i in list
         allFreelancers[name] = index * (i+1)
