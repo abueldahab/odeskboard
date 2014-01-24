@@ -48,14 +48,14 @@ phantom.create (ph) ->
               console.log page.evaluate(js, onError)
             ), 8000
 
-    open = (url, index, callback)->
+    open = (index, callback)->
       setTimeout ->
+        url = "https://www.odesk.com/o/profiles/browse/?q=#{keyword}"
+        if index > 1
+          url = url + "&page=#{index}"
+        console.log "Opening : #{url}"
         openLater url, index, callback
       , cycle * Math.random()
 
-    baseUrl = "https://www.odesk.com/o/profiles/browse/?q=#{keyword}"
-    open baseUrl, 1, callback
     for index in [1..pages]
-      url = baseUrl + "&page=#{index}"
-      console.log "Opening : #{url}"
-      open url, index, callback
+      open index, callback
