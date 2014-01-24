@@ -27,7 +27,7 @@ phantom.create (ph) ->
         console.log "opened odesk? ", status
 
         onError = (result) ->
-          callback result, index
+          callback?(result, index)
                 
         page.injectJs jquery, ->
           page.injectJs lodash, ->
@@ -53,7 +53,7 @@ phantom.create (ph) ->
       , cycle * Math.random()
 
     baseUrl = "https://www.odesk.com/o/profiles/browse/?q=#{keyword}"
-    open baseUrl
+    open baseUrl, 1, callback
     for index in [1..pages]
       url = baseUrl + "&page=#{index}"
       open url, index, callback
