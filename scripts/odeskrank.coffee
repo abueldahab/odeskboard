@@ -13,14 +13,12 @@ phantom.create (ph) ->
 
   atEnd = _.after pages, (all)->
     console.log all
-    console.log allFreelancers
     #ph.exit()
 
   callback = (list, index)->
     if list
       for name, i in list
         allFreelancers[name] = index * (i+1)
-      console.log allFreelancers
       atEnd allFreelancers
 
 
