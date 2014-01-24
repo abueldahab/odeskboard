@@ -2,7 +2,8 @@
   "name": "odeskboard",
   "version": "0.0.1",
   "dependencies": {
-    "lodash": "~2.4.1"
+    "lodash": "~2.4.1",
+    "phantom": "~0.5.4"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
