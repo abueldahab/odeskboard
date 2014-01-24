@@ -57,4 +57,5 @@ phantom.create (ph) ->
     open baseUrl, 1, callback
     for index in [1..pages]
       url = baseUrl + "&page=#{index}"
+      console.log "Opening : #{url}"
       open url, index, callback
