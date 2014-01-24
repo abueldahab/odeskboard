@@ -52,12 +52,12 @@ phantom.create (ph) ->
             ), cycle
 
   open = (index, callback)->
-    setTimeout ->
-      url = "https://www.odesk.com/o/profiles/browse/?q=#{keyword}"
-      if index > 1
-        url = url + "&page=#{index}"
-      openLater url, index, callback
-    , cycle * Math.random()
+    url = "https://www.odesk.com/o/profiles/browse/?q=#{keyword}"
+    if index > 1
+      url = url + "&page=#{index}"
+    openLater url, (list)->
+      callback list, index
+      if index < pages
+        open ++index
 
-  for index in [1..pages]
-    open index, callback
+  open 1, callback
