@@ -7,7 +7,7 @@ cycle = 5000
 jquery = "http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"
 lodash = "//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"
 
-allFreelancers = []
+allFreelancers = {}
 
 phantom.create (ph) ->
   ph.createPage (page) ->
@@ -18,6 +18,7 @@ phantom.create (ph) ->
 
     callback = (list, index)->
       if list
+        #console.log list
         for name, i in list
           allFreelancers[name] = index * i
         atEnd allFreelancers
