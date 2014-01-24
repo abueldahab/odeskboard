@@ -9,6 +9,7 @@ lodash = "//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"
 
 addFreelancers = (list)->
   list = _.flatten list
+  console.log "Result"
   console.log list
 
 
@@ -38,5 +39,5 @@ phantom.create (ph) ->
               h2Arr
 
             addFreelancers page.evaluate(js, onError)
-          ), 20000
+          ), 2000
 
