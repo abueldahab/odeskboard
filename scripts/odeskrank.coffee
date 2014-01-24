@@ -14,6 +14,7 @@ phantom.create (ph) ->
 
     onError = (result) ->
       allFreelancers.concat result
+      console.log allFreelancers
       #ph.exit()
 
     openLater = (url)->
