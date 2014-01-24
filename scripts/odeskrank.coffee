@@ -48,7 +48,7 @@ phantom.create (ph) ->
 
     open = (url, index, callback)->
       setTimeout ->
-        openLater url
+        openLater url, index, callback
       , cycle * Math.random()
 
     baseUrl = "https://www.odesk.com/o/profiles/browse/?q=#{keyword}"
