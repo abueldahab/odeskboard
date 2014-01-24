@@ -20,6 +20,7 @@ phantom.create (ph) ->
     if list
       for name, i in list
         allFreelancers[name] = index * (i+1)
+      console.log allFreelancers
       atEnd allFreelancers
 
 
@@ -27,7 +28,7 @@ phantom.create (ph) ->
     ph.createPage (page) ->
 
       page.open url, (status) ->
-        console.log "opened odesk? ", status
+        #console.log "opened odesk? ", status
 
         onError = (result) ->
           callback(result, index)
@@ -57,7 +58,6 @@ phantom.create (ph) ->
       url = "https://www.odesk.com/o/profiles/browse/?q=#{keyword}"
       if index > 1
         url = url + "&page=#{index}"
-      console.log "Opening : #{url}"
       openLater url, index, callback
     , cycle * Math.random()
 
