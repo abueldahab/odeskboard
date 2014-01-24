@@ -38,10 +38,10 @@ phantom.create (ph) ->
               allFreelancers.concat page.evaluate(js, onError)
             ), 2000
 
-      open = (url)->
-        setTimeout ->
-          openLater url
-        , 5000 * Math.random()
+    open = (url)->
+      setTimeout ->
+        openLater url
+      , 5000 * Math.random()
 
     baseUrl = "https://www.odesk.com/o/profiles/browse/?q=#{keyword}"
     open baseUrl
