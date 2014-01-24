@@ -6,18 +6,19 @@ pages = 20
 cycle = 8000
 jquery = "http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"
 lodash = "//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"
+name = 'Diaa Kasem'
 
 allFreelancers = {}
 
 phantom.create (ph) ->
 
   atEnd = _.after pages, (all)->
-    console.log all
-    #ph.exit()
+    console.log "#{name} ranked #{all[name]} for #{keyword}"
+    ph.exit()
 
   callback = (list, index)->
-    console.log list
-    console.log '=============='
+    #console.log list
+    #console.log '=============='
     if list
       for name, i in list
         allFreelancers[name] = index * (i+1)
