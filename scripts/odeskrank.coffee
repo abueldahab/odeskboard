@@ -18,9 +18,9 @@ phantom.create (ph) ->
 
     callback = (list, index)->
       if list
-        #console.log list
+        console.log list
         for name, i in list
-          allFreelancers[name] = index * i
+          allFreelancers[name] = index * (i+1)
         atEnd allFreelancers
 
     openLater = (url, index, callback)->
