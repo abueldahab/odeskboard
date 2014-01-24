@@ -20,7 +20,7 @@
 
   phantom.create(function(ph) {
     return ph.createPage(function(page) {
-      var atEnd, baseUrl, callback, index, open, openLater, url, _i, _results;
+      var atEnd, callback, index, open, openLater, _i, _results;
       atEnd = _.after(pages, function(all) {
         console.log(all);
         return ph.exit();
@@ -41,7 +41,7 @@
           var onError;
           console.log("opened odesk? ", status);
           onError = function(result) {
-            return typeof callback === "function" ? callback(result, index) : void 0;
+            return callback(result, index);
           };
           return page.injectJs(jquery, function() {
             return page.injectJs(lodash, function() {
@@ -61,18 +61,20 @@
           });
         });
       };
-      open = function(url, index, callback) {
+      open = function(index, callback) {
         return setTimeout(function() {
+          var url;
+          url = "https://www.odesk.com/o/profiles/browse/?q=" + keyword;
+          if (index > 1) {
+            url = url + ("&page=" + index);
+          }
+          console.log("Opening : " + url);
           return openLater(url, index, callback);
         }, cycle * Math.random());
       };
-      baseUrl = "https://www.odesk.com/o/profiles/browse/?q=" + keyword;
-      open(baseUrl, 1, callback);
       _results = [];
       for (index = _i = 1; 1 <= pages ? _i <= pages : _i >= pages; index = 1 <= pages ? ++_i : --_i) {
-        url = baseUrl + ("&page=" + index);
-        console.log("Opening : " + url);
-        _results.push(open(url, index, callback));
+        _results.push(open(index, callback));
       }
       return _results;
     });

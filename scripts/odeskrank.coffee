@@ -10,25 +10,27 @@ lodash = "//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"
 allFreelancers = {}
 
 phantom.create (ph) ->
-  ph.createPage (page) ->
 
-    atEnd = _.after pages, (all)->
-      console.log all
-      ph.exit()
+  atEnd = _.after pages, (all)->
+    console.log all
+    ph.exit()
 
-    callback = (list, index)->
-      if list
-        console.log list
-        for name, i in list
-          allFreelancers[name] = index * (i+1)
-        atEnd allFreelancers
+  callback = (list, index)->
+    if list
+      console.log list
+      for name, i in list
+        allFreelancers[name] = index * (i+1)
+      atEnd allFreelancers
 
-    openLater = (url, index, callback)->
+
+  openLater = (url, index, callback)->
+    ph.createPage (page) ->
+
       page.open url, (status) ->
         console.log "opened odesk? ", status
 
         onError = (result) ->
-          callback?(result, index)
+          callback(result, index)
                 
         page.injectJs jquery, ->
           page.injectJs lodash, ->
@@ -48,14 +50,14 @@ phantom.create (ph) ->
               console.log page.evaluate(js, onError)
             ), 8000
 
-    open = (index, callback)->
-      setTimeout ->
-        url = "https://www.odesk.com/o/profiles/browse/?q=#{keyword}"
-        if index > 1
-          url = url + "&page=#{index}"
-        console.log "Opening : #{url}"
-        openLater url, index, callback
-      , cycle * Math.random()
+  open = (index, callback)->
+    setTimeout ->
+      url = "https://www.odesk.com/o/profiles/browse/?q=#{keyword}"
+      if index > 1
+        url = url + "&page=#{index}"
+      console.log "Opening : #{url}"
+      openLater url, index, callback
+    , cycle * Math.random()
 
-    for index in [1..pages]
-      open index, callback
+  for index in [1..pages]
+    open index, callback
