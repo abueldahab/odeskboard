@@ -4,10 +4,12 @@ _ = require 'lodash'
 jquery = "http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"
 lodash = "//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"
 
-pages = 20
+pages = 400
 cycle = 8000
-keyword = 'AngularJS'
-searchname = 'Diaa Kasem'
+#keyword = 'AngularJS'
+#searchname = 'Diaa Kasem'
+keyword = 'illustrator'
+searchname = 'Nawal Magdy'
 
 allFreelancers = {}
 
