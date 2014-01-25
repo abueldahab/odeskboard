@@ -28,7 +28,7 @@ startTime = +new Date()
 phantom.create (ph) ->
 
   atEnd = (all)->
-    log "#{searchname} ranked #{all[searchname]} for #{keyword}"
+    log "\n#{searchname} ranked #{all[searchname]} for #{keyword}"
     endTime = +new Date()
     time = Math.floor((endTime - startTime) / 1000)
     minutes = Math.floor(time / 60)
@@ -44,7 +44,7 @@ phantom.create (ph) ->
         log url
         atEnd allFreelancers
       else
-        inline '.'
+        inline "Scanning page #{index} \r"
 
 
   openLater = (url, callback)->
