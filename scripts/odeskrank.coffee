@@ -4,7 +4,7 @@ _ = require 'lodash'
 jquery = "http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"
 lodash = "//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"
 
-pages = 100
+pages = 10000
 cycle = 8000
 #keyword = 'd3js'
 #keyword = 'angularjs'
