@@ -4,29 +4,36 @@ _ = require 'lodash'
 jquery = "http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"
 lodash = "//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"
 
-pages = 400
+pages = 100
 cycle = 8000
-#keyword = 'AngularJS'
-#searchname = 'Diaa Kasem'
-keyword = 'illustrator'
-searchname = 'Nawal Magdy'
+#keyword = 'd3js'
+keyword = 'angularjs'
+searchname = 'Diaa Kasem'
+
+#keyword = 'illustrator'
+#keyword = 'illustrator'
+#searchname = 'Nawal Magdy'
 
 allFreelancers = {}
 
 phantom.create (ph) ->
 
-  atEnd = _.after pages, (all)->
+  atEnd = (all)->
     console.log "#{searchname} ranked #{all[searchname]} for #{keyword}"
     ph.exit()
 
-  callback = (list, index)->
+  callback = (list, index, url)->
     #console.log list
     #console.log '=============='
     console.log '.'
     if list
       for name, i in list
         allFreelancers[name] = index * (i+1)
-      atEnd allFreelancers
+      if list[searchname]
+        cosole.log url
+        atEnd allFreelancers
+      else
+        console.log "Not yet found, #{index}"
 
 
   openLater = (url, callback)->
@@ -63,7 +70,7 @@ phantom.create (ph) ->
     if index > 1
       url = url + "&page=#{index}"
     openLater url, (list)->
-      callback list, index
+      callback list, index, url
       if index < pages
         open ++index, callback
 
