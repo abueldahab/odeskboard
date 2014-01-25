@@ -25,12 +25,11 @@ phantom.create (ph) ->
   callback = (list, index, url)->
     #console.log list
     #console.log '=============='
-    console.log '.'
     if list
       for name, i in list
         allFreelancers[name] = index * (i+1)
-      if list[searchname]
-        cosole.log url
+      if searchname in list
+        console.log url
         atEnd allFreelancers
       else
         console.log "Not yet found, #{index}"
