@@ -7,45 +7,50 @@ lodash = "//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"
 pages = 10000
 cycle = 8000
 #keyword = 'd3js'
-keyword = 'angularjs'
-searchname = 'Diaa Kasem'
+#keyword = 'nodejs'
+args = process.argv
+if args.length < 4
+  console.log 'Usage: coffee odeskrank.coffee <Display Name> <Search term>'
+  process.exit(1)
 
-#keyword = 'illustrator'
-#keyword = 'photoshop'
-#searchname = 'Nawal Magdy'
+inline = (msg)->
+  process.stdout.write msg
+
+log = (msg)->
+  console.log msg
+
+
+keyword = process.argv[3]
+searchname = process.argv[2]
 
 allFreelancers = {}
 startTime = +new Date()
 phantom.create (ph) ->
 
   atEnd = (all)->
-    console.log "#{searchname} ranked #{all[searchname]} for #{keyword}"
+    log "#{searchname} ranked #{all[searchname]} for #{keyword}"
     endTime = +new Date()
     time = Math.floor((endTime - startTime) / 1000)
     minutes = Math.floor(time / 60)
     seconds = time % 60
-    console.log "Time taken : #{minutes} minutes #{seconds} seconds."
+    log "Time taken : #{minutes} minutes #{seconds} seconds."
     ph.exit()
 
   callback = (list, index, url)->
-    #console.log list
-    #console.log '=============='
     if list
       for name, i in list
         allFreelancers[name] = ( index * list.length ) + (i+1)
       if searchname in list
-        console.log url
+        log url
         atEnd allFreelancers
       else
-        #console.log "Not yet found, #{index}"
-        console.log '.'
+        inline '.'
 
 
   openLater = (url, callback)->
     ph.createPage (page) ->
 
       page.open url, (status) ->
-        #console.log "opened odesk? ", status
 
         onError = (result) ->
           callback(result)
