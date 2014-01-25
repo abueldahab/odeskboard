@@ -7,12 +7,12 @@ lodash = "//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"
 pages = 100
 cycle = 8000
 #keyword = 'd3js'
-keyword = 'angularjs'
-searchname = 'Diaa Kasem'
+#keyword = 'angularjs'
+#searchname = 'Diaa Kasem'
 
+keyword = 'illustrator'
 #keyword = 'illustrator'
-#keyword = 'illustrator'
-#searchname = 'Nawal Magdy'
+searchname = 'Nawal Magdy'
 
 allFreelancers = {}
 
@@ -43,6 +43,7 @@ phantom.create (ph) ->
 
         onError = (result) ->
           callback(result)
+          page.close()
                 
         page.injectJs jquery, ->
           page.injectJs lodash, ->
@@ -62,6 +63,7 @@ phantom.create (ph) ->
               res = page.evaluate(js, onError)
               if res
                 callback res
+                page.close()
             ), cycle
 
   open = (index, callback)->
