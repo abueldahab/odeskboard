@@ -39,7 +39,7 @@ phantom.create (ph) ->
   callback = (list, index, url)->
     if list
       for name, i in list
-        allFreelancers[name] = ( index * list.length ) + (i+1)
+        allFreelancers[name] = ((index - 1) * list.length ) + (i+1)
       if searchname in list
         log url
         atEnd allFreelancers
