@@ -28,7 +28,7 @@ startTime = +new Date()
 phantom.create (ph) ->
 
   atEnd = (all)->
-    log "\n#{searchname} ranked #{all[searchname]} for #{keyword}"
+    log "#{searchname} ranked #{all[searchname]} for #{keyword}"
     endTime = +new Date()
     time = Math.floor((endTime - startTime) / 1000)
     minutes = Math.floor(time / 60)
@@ -41,7 +41,7 @@ phantom.create (ph) ->
       for name, i in list
         allFreelancers[name] = ((index - 1) * list.length ) + (i+1)
       if searchname in list
-        log url
+        log "\n#{url}"
         atEnd allFreelancers
       else
         inline "Scanning page #{index} \r"

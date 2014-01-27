@@ -18,10 +18,11 @@
 #===============================================================================
 
 set -o nounset                              # Treat unset variables as an error
-declare -a techs=(angularjs d3js nodejs coffeescript jasmine python flask)
+date
+declare -a techs=(angularjs d3js nodejs coffeescript jasmine flask)
 for tech in ${techs[@]};
 do
  coffee odeskrank.coffee 'Diaa Kasem' $tech 2> /dev/null;
  sleep 10;
 done 
-
+say "I'm done Diaa. Please, check your o desk rank."
