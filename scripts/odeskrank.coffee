@@ -47,22 +47,21 @@ openLater = (url, callback)->
       h2Arr.push $(this).html()
     callback h2Arr
 
+onSuccess = (index)->
+  (list)->
+    for name, i in list
+      allFreelancers[name] = ((index - 1) * list.length ) + (i+1)
+
+    if searchname in list
+      atEnd allFreelancers
+    else if ++index < pages
+      inline "Scanning page #{index} \r"
+      open(index)
+
 open = (index)->
   url = "https://www.odesk.com/o/profiles/browse/?q=#{keyword}"
   if index > 1
     url = url + "&page=#{index}"
-  openLater url, (list)->
-    if list
-      for name, i in list
-        allFreelancers[name] = ((index - 1) * list.length ) + (i+1)
-
-      if searchname in list
-        log "\n#{url}"
-        atEnd allFreelancers
-      else if index < pages
-        inline "Scanning page #{index} \r"
-        open(++index)
-    else
-      log "No more pages to scan. [ empty lists ]"
+  openLater url, onSuccess(index)
 
 open 1
